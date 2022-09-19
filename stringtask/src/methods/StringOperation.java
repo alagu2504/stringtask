@@ -117,13 +117,16 @@ return inputString.toLowerCase();
 
 //method13
 public String toReverse(String inputString)throws OwnException{
-int length=getLength(inputString);
-char character;
-String reverseString="";
-for(int i=length-1;i>=0;i--){
-character=inputString.charAt(i);
-reverseString=reverseString+character;
+	isNull(inputString);
+char []characterArray=inputString.toCharArray();
+int length=characterArray.length;
+int reverseInt=length-1;
+for(int i=0;i<length/2;i++,reverseInt--) {
+	char temp=characterArray[i];
+	characterArray[i]=characterArray[reverseInt];
+	characterArray[reverseInt]=temp;
 }
+String reverseString=String.valueOf(characterArray);
 return reverseString;
 }//end of reverse
 
